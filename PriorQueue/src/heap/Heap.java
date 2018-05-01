@@ -94,8 +94,12 @@ public class Heap<E> extends CompleteBinaryTree<E> {
 			CBTPosition<E> minChild = (CBTPosition<E>) this.left(r); 
 			if (this.hasRight(r)) {
 				CBTPosition<E> rChild = (CBTPosition<E>) this.right(r); 
-				if (cmp.compare(minChild.getElement(), this.right(r).getElement()) > 0)
-					minChild = rChild; 
+				if (cmp.compare(minChild.getElement(), this.right(r).getElement()) > 0){
+					//minChild = rChild; 
+					swapPositionsInList(minChild, rChild);
+					downHeap(minChild);
+				}
+				
 			}
 
 			// CODE IS MISSING HERE ... ADD THE CORRECT CODE
